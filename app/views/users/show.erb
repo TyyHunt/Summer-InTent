@@ -3,6 +3,8 @@
 <br>
 <h5>Here are your currently planned trips</h5>
 <br>
+<a class="btn btn-primary btn-lg" href="/plans/new" role="button">Create a New Plan</a>
+<br>
 <% @user.plans.each do |plan| %>
   <div class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -14,6 +16,10 @@
           <p><%= plan.shelter_type %></p>
         </div>
       </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-lg" href="/plans/:id/edit" role="button">Edit</a>
+      </div>
     </div>
   </div>
 <% end %>
+
