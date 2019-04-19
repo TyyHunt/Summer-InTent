@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :plans
   
   def slug 
-    title.downcase.strip.gsub(" ",'-').gsub(/[^\w-]/.'')
+    username.downcase.strip.gsub(' ','-').gsub(/[^\w-]/,'')
   end
   
   def self.find_by_slug(slug)
