@@ -7,7 +7,7 @@ class UserController < ApplicationController
   
   get '/login' do
     if !session[:user_id]
-      erb :'users/login'
+      erb :'/users/login'
     else
       redirect '/users/show'
     end

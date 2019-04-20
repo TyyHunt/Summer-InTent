@@ -2,7 +2,7 @@ require './config/environment'
 
 class ApplicationController < Sinatra::Base 
   
-    configure do
+  configure do
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
@@ -14,7 +14,7 @@ class ApplicationController < Sinatra::Base
   end
   
   helpers do
-        def logged_in?
+    def logged_in?
       !!session[:user_id]
     end
 

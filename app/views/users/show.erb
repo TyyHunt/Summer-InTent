@@ -5,21 +5,9 @@
 <br>
 <a class="btn btn-primary btn-lg" href="/plans/new" role="button">Create a New Plan</a>
 <br>
-<% @user.plans.each do |plan| %>
-  <div class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          <p><%= plan.location %></p>
-          <p><%= plan.dates %></p>
-          <p><%= plan.party_number %></p>
-          <p><%= plan.shelter_type %></p>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <a class="btn btn-primary btn-lg" href="/plans/:id/edit" role="button">Edit</a>
-      </div>
-    </div>
-  </div>
+<% @user.plan.each do |plan| %>
+  <ul>
+    <li><a href="/plans/<%= plan.id %>"><%= plan.location %></a></li>
+  </ul>
 <% end %>
 

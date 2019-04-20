@@ -1,0 +1,19 @@
+<br><br>
+<h4>Look at all these plans!</h4>
+<br>
+<% @plans.each do |plan| %>
+  <div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <p><%= plan.location %></p>
+          <p><%= plan.party_number %></p>
+          <p><%= plan.shelter_type %></p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-lg" href="/plans/:id/edit" role="button">Edit</a>
+      </div>
+    </div>
+  </div>
+<% end %>
