@@ -1,0 +1,33 @@
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Ubuntu Condensed', sans-serif;
+  background: url(https://images.pexels.com/photos/917494/pexels-photo-917494.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: scroll;
+}
+
+.jumbotron {
+  background-color: #E1DEE3;
+}
+
+.navbar {
+  background-color: #C0DFA1;
+}
+
+h3, h5 {
+  text-align: center;
+}
+
+.container {
+  padding: 0;
+  background-color: #eee;
+}
+
+.page-info {
+  background-color: #eee;
+ 
+}

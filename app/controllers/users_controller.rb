@@ -1,10 +1,23 @@
 class UserController < ApplicationController
   
+  get '/users/:id' do
+    if !logged_in?
+      redirect '/login'
+    end
+
+    @user = User.find(session[:user_id])
+    if !@user.nil? && @user == current_user
+      erb :'/users/show'
+    else
+      redirect '/plans'
+    end
+  end
+  
   get '/login' do
     if !session[:user_id]
       erb :'/users/login'
     else
-      redirect '/users/:slug'
+      redirect '/plans'
     end
   end
   

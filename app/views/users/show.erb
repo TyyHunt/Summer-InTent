@@ -1,13 +1,14 @@
 <br><br>
-<h3><%= @user.username %></h3>
-<br>
-<h5>Here are <%= @user.username %>'s currently planned trips</h5>
-<br>
-<a class="btn btn-primary btn-lg" href="/plans/new" role="button">Create a New Plan</a>
-<br>
-<% @user.plan.each do |plan| %>
-  <ul>
-    <li><a href="/plans/<%= plan.id %>"><%= plan.location %></a></li>
-  </ul>
-<% end %>
+<div class="page-info">
+  <h3>Hello <%= @user.username %>!</h3>
+  <br>
+  <h5>Here are your currently planned trips</h5>
+  <br>
+  <br>
+  <% @user.plans.each do |plan| %>
+    <ul>
+      <li><a href="/plans/<%= plan.id %>"><%= plan.location %></a></li>
+    </ul>
+  <% end %>
+</div>
 
