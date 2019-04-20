@@ -1,0 +1,17 @@
+  <br><br>
+  
+  <div class="single-post">
+    <div class="card">
+      <div class="card-header">
+        <i class="fas fa-map-signs"></i>
+      </div>
+      <div class="card-body">
+        <div class="post-body">
+          <p>Going to <%= @plan.location %></p>
+          <p>With <%= @plan.party_number %> people</p>
+          <p>I'll be staying in a <%= @plan.shelter_type %></p>
+          <button type="button" class="btn btn-success"><a href="/plans/<%= @plan.id %>/edit">Edit</a></button>
+        </div>
+      </div>
+    </div>
+  </div>
