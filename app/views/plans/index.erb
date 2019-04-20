@@ -2,20 +2,19 @@
 <h4>Look at all these plans!</h4>
 <br>
 <% @plans.each do |plan| %>
-  <div class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          <p>hello world</p>
-          <p><%= plan.location %></p>
-          <p><%= plan.party_number %></p>
-          <p><%= plan.shelter_type %></p>
-        </div>
+  <div class="single-post">
+    <div class="card">
+      <div class="card-header">
+        <i class="fas fa-map-signs"></i>
       </div>
-      <div class="modal-footer">
-        <a class="btn btn-primary btn-lg" href="/plans/:id/edit" role="button">Edit</a>
+      <div class="card-body">
+        <div class="post-body">
+          <p>Going to <%= plan.location %></p>
+          <p>With <%= plan.party_number %> people</p>
+          <p>I'll be staying in a <%= plan.shelter_type %></p>
+        </div>
       </div>
     </div>
   </div>
 <% end %>
-<p>hello world</p>
+  
