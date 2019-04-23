@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20190419232756) do
 
   create_table "plans", force: :cascade do |t|
     t.string  "location"
-    t.date    "dates"
     t.integer "party_number"
     t.string  "shelter_type"
     t.integer "user_id"

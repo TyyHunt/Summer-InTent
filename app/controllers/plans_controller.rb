@@ -18,12 +18,14 @@ class PlanController < ApplicationController
   end
   
   post '/plans' do
-    @plan = Plan.new(:location => params[:location], :party_number => params[:party_number], :shelter_type => params[:shelter_type])
+    
     if params[:location] == "" || params[:party_number] == "" || params[:shelter_type] == ""
       redirect to '/plans/new'
     else
+      @plan = Plan.new(params)
+      @plan.user_id = current_user.id
       @plan.save
-      redirect to '/plans/:id/edit'
+      redirect to '/users/show'
     end
   end
   
