@@ -53,7 +53,7 @@ class PlanController < ApplicationController
       if params[:location] == "" || params[:party_number] == "" || params[:shelter_type] == ""
         redirect "/plans/#{@plan.id}/edit"
       else
-        @plan.update(:location => params[:location], :party_number => params[:party_number], :shelter_type => params[:shelter_type])
+        @plan.update(:location => params[:location], :party_number => params[:party_number], :shelter_type => params[:shelter_type], :user_id => @plan.user_id)
         redirect "/plans/#{@plan.id}"
       end
     else
