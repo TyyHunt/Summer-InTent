@@ -25,7 +25,7 @@ class PlanController < ApplicationController
       @plan = Plan.new(params)
       @plan.user_id = current_user.id
       @plan.save
-      redirect to '/users/show'
+      redirect to "/users/#{@plan.user_id}"
     end
   end
   

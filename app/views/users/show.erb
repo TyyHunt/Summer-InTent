@@ -16,7 +16,9 @@
           <p>Going to <%= plan.location %></p>
           <p>With <%= plan.party_number %> people</p>
           <p>I'll be staying in a <%= plan.shelter_type %></p>
-          <button type="button" class="btn btn-success"><a href="/plans/<%= plan.id %>/edit">Edit</a></button>
+          <% if correct_user?(@user) %>
+            <button type="button" class="btn btn-success"><a href="/plans/<%= plan.id %>/edit">Edit</a></button>
+          <% end %>
         </div>
       </div>
     </div>
