@@ -5,11 +5,11 @@ class UserController < ApplicationController
       redirect '/login'
     end
 
-    @user = User.find(params[:id])
-    if !@user.nil?
-      erb :'/users/show'
+    @user = User.find_by(id: params[:id])
+    if @user == nil
+      erb :'/error'
     else
-      redirect '/plans'
+      erb :'/users/show'
     end
   end
   
