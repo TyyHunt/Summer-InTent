@@ -15,9 +15,13 @@
     <label for="shelter_type">What will you be staying in:</label>
     <input type="text" class="form-control" id="shelter_type" value="<%= @plan.shelter_type %>" name="shelter_type">
   </div>
-  <button type="submit" value="submit" class="btn btn-primary">Update</button>
+  <% if correct_user?(@plan.user) %>
+    <button type="submit" value="submit" class="btn btn-primary">Update</button>
+  <% end %>
 </form>
-<form action="/plans/<%= @plan.id %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <button type="submit" class="btn btn-danger">Delete</button>
-</form>
+<% if correct_user?(@plan.user) %>
+  <form action="/plans/<%= @plan.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit" class="btn btn-danger">Delete</button>
+  </form>
+<% end %>

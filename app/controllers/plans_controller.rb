@@ -39,11 +39,11 @@ class PlanController < ApplicationController
   end
   
   get '/plans/:id/edit' do
-    if logged_in?
-      @plan = Plan.find(params[:id])
+    @plan = Plan.find(params[:id])
+    if correct_user?(@plan.user)
       erb :'/plans/edit'
     else
-      redirect '/login'
+      redirect "/plans/#{@plan.id}"
     end
   end
   

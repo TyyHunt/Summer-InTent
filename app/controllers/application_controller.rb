@@ -25,6 +25,14 @@ class ApplicationController < Sinatra::Base
     def correct_user?(user)
       user == current_user
     end
+    
+    def account_route
+      if logged_in?
+        "/users/<%= current_user.id %>"
+      else
+        "/login"
+      end
+    end
   end
   
 end

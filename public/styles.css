@@ -36,3 +36,19 @@ h3, h5 {
 a {
   color: white;
 }
+
+i {
+  padding-right: 10px;
+}
+
+.single-post {
+  margin-bottom: 5px;
+}
+
+.card-header {
+  background-color: #546A7B;
+}
+
+.card-body {
+  background-color: #9EA3B0;
+}
