@@ -1,7 +1,7 @@
 class PlanController < ApplicationController
   
   get '/plans' do
-    if logged_in?
+    if logged_in? 
       @plans = Plan.all
       erb :'/plans/index'
     else
@@ -30,11 +30,11 @@ class PlanController < ApplicationController
   end
   
   get '/plans/:id' do
-    if logged_in?
-      @plan = Plan.find(params[:id])
-      erb :'/plans/show'
+    @plan = Plan.find_by(id: params[:id])
+    if @plan == nil
+      erb :'/error'
     else
-      redirect '/login'
+      erb :'/plans/show'
     end
   end
   

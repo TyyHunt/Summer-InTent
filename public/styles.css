@@ -23,6 +23,11 @@ h3, h5 {
   text-align: center;
 }
 
+div.error {
+  text-align: center;
+  padding: 250px 0 ;
+}
+
 .container {
   padding: 0;
   background-color: #eee;
@@ -52,3 +57,4 @@ i {
 .card-body {
   background-color: #9EA3B0;
 }
+
