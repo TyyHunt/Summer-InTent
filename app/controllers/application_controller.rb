@@ -28,7 +28,7 @@ class ApplicationController < Sinatra::Base
     
     def account_route
       if logged_in?
-        "/users/<%= current_user.id %>"
+        "/users/#{ current_user.id }"
       else
         "/login"
       end

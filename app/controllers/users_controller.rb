@@ -4,7 +4,7 @@ class UserController < ApplicationController
     if !logged_in?
       redirect '/login'
     end
-
+    
     @user = User.find_by(id: params[:id])
     if @user == nil
       erb :'/error'
