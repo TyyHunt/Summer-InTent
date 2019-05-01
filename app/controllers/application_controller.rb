@@ -19,7 +19,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-      User.find(session[:user_id])
+      User.find_by(id: session[:user_id])
     end
     
     def correct_user?(user)
@@ -33,6 +33,13 @@ class ApplicationController < Sinatra::Base
         "/login"
       end
     end
+    
+    def if_not_logged_in
+      if !logged_in?
+        redirect to '/login'
+      end
+    end
+      
   end
   
 end

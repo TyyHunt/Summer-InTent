@@ -1,29 +1,22 @@
 class PlanController < ApplicationController
   
   get '/plans' do
-    if logged_in? 
-      @plans = Plan.all
-      erb :'/plans/index'
-    else
-      redirect to '/'
-    end
+    if_not_logged_in 
+    @plans = Plan.all
+    erb :'/plans/index'
   end
   
   get '/plans/new' do
-    if logged_in?
-      erb :'/plans/new'
-    else
-      redirect to '/login'
-    end
+    if_not_logged_in
+    erb :'/plans/new'
   end
   
   post '/plans' do
-    
+    if_not_logged_in
     if params[:location] == "" || params[:party_number] == "" || params[:shelter_type] == ""
       redirect to '/plans/new'
     else
-      @plan = Plan.new(params)
-      @plan.user_id = current_user.id
+      @plan = current_user.plans.build(params)
       @plan.save
       redirect to "/users/#{@plan.user_id}"
     end
@@ -48,8 +41,8 @@ class PlanController < ApplicationController
   end
   
   patch '/plans/:id' do
-    if logged_in?
-      @plan = Plan.find(params[:id])
+    @plan = Plan.find(params[:id])
+    if logged_in? && correct_user?(@plan.user)
       if params[:location] == "" || params[:party_number] == "" || params[:shelter_type] == ""
         redirect "/plans/#{@plan.id}/edit"
       else
@@ -62,17 +55,12 @@ class PlanController < ApplicationController
   end
 
   delete '/plans/:id' do
-    if logged_in?
-      @plan = Plan.find(params[:id])
-      if @plan.user == current_user
-        @plan.delete
-        redirect "/plans"
-      else
-        redirect "/plans"
-      end
-    else
-      redirect "/login"
+    if_not_logged_in
+    @plan = Plan.find(params[:id])
+    if @plan.user == current_user
+      @plan.delete
     end
+      redirect "/plans"
   end
   
 
